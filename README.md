@@ -1,2 +1,2 @@
 # Capstone_Mortality
-Capsstone project at NYC DS 
+Capstone project at NYC DS 
