@@ -41,10 +41,10 @@ LIMIT 100;
 SET FOREIGN_KEY_CHECKS=0;
 SET UNIQUE_CHECKS=0;
 
-SHOW SESSION VARIABLES LIKE 'local_infile'; -- this wasto check if the local infile option was enabled.
+SHOW SESSION VARIABLES LIKE 'local_infile'; -- this was mortality_2013to check if the local infile option was enabled.
 SET AUTOCOMMIT=1;
--- TRUNCATE TABLE cdcmortality.mortality_2017;
-LOAD DATA LOCAL INFILE 'YOUR PATH to the csv file'  INTO TABLE cdcmortality.mortality_2017
+TRUNCATE TABLE cdcmortality.mortality_2017;
+LOAD DATA LOCAL INFILE 'C:/Users/Pixy/NYCDSA/Proj4_Capstone/Capstone_Mortality/data/rawdata/mort_2017.csv'  INTO TABLE cdcmortality.mortality_2017
 FIELDS TERMINATED BY ','
 OPTIONALLY ENCLOSED BY '"' 
 LINES TERMINATED BY '\r'
@@ -53,7 +53,7 @@ IGNORE 1 LINES;
 SET FOREIGN_KEY_CHECKS=1;
 SET UNIQUE_CHECKS=1;
 
--- NOT DONE 2016 [x] x for no, o for yes ---------------------------------------------------------------
+-- NOT DONE 2016 [o] x for no, o for yes ---------------------------------------------------------------
 
 SET FOREIGN_KEY_CHECKS=0;
 SET UNIQUE_CHECKS=0;
@@ -61,19 +61,7 @@ SET UNIQUE_CHECKS=0;
 SHOW SESSION VARIABLES LIKE 'local_infile';
 SET AUTOCOMMIT=1;
 TRUNCATE TABLE cdcmortality.mortality_2016;
-LOAD DATA LOCAL INFILE 'YOUR PATH to the csv file' INTO TABLE cdcmortality.mortality_2016
-FIELDS TERMINATED BY ','
-OPTIONALLY ENCLOSED BY '"' 
-LINES TERMINATED BY '\r'
-IGNORE 1 LINES;
-
--- NOT DONE 2015 [x] x for no, o for yes --------------------------------------------------------------
-SET FOREIGN_KEY_CHECKS=0;
-SET UNIQUE_CHECKS=0;
-SHOW SESSION VARIABLES LIKE 'local_infile';
-SET AUTOCOMMIT=1;
-TRUNCATE TABLE cdcmortality.mortality_2015;
-LOAD DATA LOCAL INFILE 'YOUR PATH to the csv file' INTO TABLE cdcmortality.mortality_2015
+LOAD DATA LOCAL INFILE 'C:/Users/Pixy/NYCDSA/Proj4_Capstone/Capstone_Mortality/data/rawdata/mort_2016.csv' INTO TABLE cdcmortality.mortality_2016
 FIELDS TERMINATED BY ','
 OPTIONALLY ENCLOSED BY '"' 
 LINES TERMINATED BY '\r'
@@ -82,14 +70,32 @@ IGNORE 1 LINES;
 SET FOREIGN_KEY_CHECKS=1;
 SET UNIQUE_CHECKS=1;
 
--- NOT DONE 2014 [x] x for no, o for yes --------------------------------------------------------------
+-- NOT DONE 2015 [o] x for no, o for yes --------------------------------------------------------------
+
+SET FOREIGN_KEY_CHECKS=0;
+SET UNIQUE_CHECKS=0;
+
+SHOW SESSION VARIABLES LIKE 'local_infile';
+SET AUTOCOMMIT=1;
+TRUNCATE TABLE cdcmortality.mortality_2015;
+LOAD DATA LOCAL INFILE 'C:/Users/Pixy/NYCDSA/Proj4_Capstone/Capstone_Mortality/data/rawdata/mort_2015.csv' INTO TABLE cdcmortality.mortality_2015
+FIELDS TERMINATED BY ','
+OPTIONALLY ENCLOSED BY '"' 
+LINES TERMINATED BY '\r'
+IGNORE 1 LINES;
+
+SET FOREIGN_KEY_CHECKS=1;
+SET UNIQUE_CHECKS=1;
+
+-- NOT DONE 2014 [o] x for no, o for yes --------------------------------------------------------------
+
 SET FOREIGN_KEY_CHECKS=0;
 SET UNIQUE_CHECKS=0;
 
 SHOW SESSION VARIABLES LIKE 'local_infile';
 SET AUTOCOMMIT=1;
 TRUNCATE TABLE cdcmortality.mortality_2014;
-LOAD DATA LOCAL INFILE 'YOUR PATH to the csv file' INTO TABLE cdcmortality.mortality_2014
+LOAD DATA LOCAL INFILE 'C:/Users/Pixy/NYCDSA/Proj4_Capstone/Capstone_Mortality/data/rawdata/mort_2014.csv' INTO TABLE cdcmortality.mortality_2014
 FIELDS TERMINATED BY ','
 OPTIONALLY ENCLOSED BY '"' 
 LINES TERMINATED BY '\r'
@@ -99,14 +105,14 @@ SET FOREIGN_KEY_CHECKS=1;
 SET UNIQUE_CHECKS=1;
 
 
--- NOT DONE 2013 [x] x for no, o for yes --------------------------------------------------------------
+-- NOT DONE 2013 [o] x for no, o for yes --------------------------------------------------------------
 SET FOREIGN_KEY_CHECKS=0;
 SET UNIQUE_CHECKS=0;
 
 SHOW SESSION VARIABLES LIKE 'local_infile';
 SET AUTOCOMMIT=1;
 TRUNCATE TABLE cdcmortality.mortality_2013;
-LOAD DATA LOCAL INFILE 'YOUR PATH to the csv file' INTO TABLE cdcmortality.mortality_2013
+LOAD DATA LOCAL INFILE 'C:/Users/Pixy/NYCDSA/Proj4_Capstone/Capstone_Mortality/data/rawdata/mort_2013.csv' INTO TABLE cdcmortality.mortality_2013
 FIELDS TERMINATED BY ','
 OPTIONALLY ENCLOSED BY '"' 
 LINES TERMINATED BY '\r'
@@ -116,15 +122,14 @@ SET FOREIGN_KEY_CHECKS=1;
 SET UNIQUE_CHECKS=1;
 
 
--- NOT DONE 2012 [x] x for no, o for yes --------------------------------------------------------------
-
+-- NOT DONE 2012 [o] x for no, o for yes --------------------------------------------------------------
 SET FOREIGN_KEY_CHECKS=0;
 SET UNIQUE_CHECKS=0;
 
 SHOW SESSION VARIABLES LIKE 'local_infile';
 SET AUTOCOMMIT=1;
 TRUNCATE TABLE cdcmortality.mortality_2012;
-LOAD DATA LOCAL INFILE 'YOUR PATH to the csv file' INTO TABLE cdcmortality.mortality_2012
+LOAD DATA LOCAL INFILE 'C:/Users/Pixy/NYCDSA/Proj4_Capstone/Capstone_Mortality/data/rawdata/mort_2012.csv' INTO TABLE cdcmortality.mortality_2012
 FIELDS TERMINATED BY ','
 OPTIONALLY ENCLOSED BY '"' 
 LINES TERMINATED BY '\r'
