@@ -20,15 +20,15 @@ describe mortality_2018;
 
 
 -- Once tables are created and finalized, do not run this 
-DROP TABLE IF EXISTS employees;
-DROP TABLE IF EXISTS mortality_2018;
-DROP TABLE IF EXISTS mortality_2017;
-DROP TABLE IF EXISTS mortality_2016;
-DROP TABLE IF EXISTS mortality_2015;
-DROP TABLE IF EXISTS mortality_2014;
-DROP TABLE IF EXISTS mortality_2013;
-DROP TABLE IF EXISTS mortality_2012;
-DROP TABLE IF EXISTS mortality_2011;
+#DROP TABLE IF EXISTS employees;
+#DROP TABLE IF EXISTS mortality_2018;
+#DROP TABLE IF EXISTS mortality_2017;
+#DROP TABLE IF EXISTS mortality_2016;
+#DROP TABLE IF EXISTS mortality_2015;
+#DROP TABLE IF EXISTS mortality_2014;
+#DROP TABLE IF EXISTS mortality_2013;
+#DROP TABLE IF EXISTS mortality_2012;
+#DROP TABLE IF EXISTS mortality_2011;
 
 CREATE TABLE mortality_2018 (
 	person_id   int(11) AUTO_INCREMENT NOT NULL,
