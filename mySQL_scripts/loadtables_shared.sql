@@ -29,7 +29,7 @@ SET UNIQUE_CHECKS=0;
 SHOW SESSION VARIABLES LIKE 'local_infile';
 SET AUTOCOMMIT=1; 
 TRUNCATE TABLE cdcmortality.mortality_2018;
-LOAD DATA LOCAL INFILE 'F:/PythonFiles/NYCDSA/CAPSTONE - Ideas/rawdata/mort_2018.csv' INTO TABLE cdcmortality.mortality_2018
+LOAD DATA LOCAL INFILE 'YOUR PATH to the csv file' INTO TABLE cdcmortality.mortality_2018
 FIELDS TERMINATED BY ','
 OPTIONALLY ENCLOSED BY '"' 
 LINES TERMINATED BY '\r'
@@ -51,7 +51,7 @@ SET UNIQUE_CHECKS=0;
 SHOW SESSION VARIABLES LIKE 'local_infile'; -- this wasto check if the local infile option was enabled.
 SET AUTOCOMMIT=1;
 -- TRUNCATE TABLE cdcmortality.mortality_2017;
-LOAD DATA LOCAL INFILE 'F:/PythonFiles/NYCDSA/CAPSTONE - Ideas/rawdata/mort_2017.csv'  INTO TABLE cdcmortality.mortality_2017
+LOAD DATA LOCAL INFILE 'YOUR PATH to the csv file'  INTO TABLE cdcmortality.mortality_2017
 FIELDS TERMINATED BY ','
 OPTIONALLY ENCLOSED BY '"' 
 LINES TERMINATED BY '\r'

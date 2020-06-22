@@ -6,7 +6,7 @@ SHOW CREATE DATABASE cdcmortality;
 
 use cdcmortality;
 show tables;
-DROP TABLE IF EXISTS Crime_Data;
+
 
 
 describe mortality_2018;
