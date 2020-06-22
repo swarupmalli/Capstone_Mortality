@@ -1,10 +1,13 @@
 
--- Create DB and Tables
+-- Create DB and Tables ---------------------------------
 CREATE DATABASE cdcmortality;
 SHOW CREATE DATABASE cdcmortality;
+-- ------------------------------
 
 use cdcmortality;
 show tables;
+
+
 
 describe mortality_2018;
 
@@ -18,6 +21,8 @@ describe mortality_2018;
 -- edu_2003_Desc	
 -- edu_reporting_flag
 
+
+ALTER TABLE   cdcmortality.mortality_2018 add FOREIGN KEY(edu_1989_rev) REFERENCES edu_1989_rev_LK(edu_1989_rev);
 
 -- Once tables are created and finalized, do not run this 
 DROP TABLE IF EXISTS employees;
@@ -36,9 +41,7 @@ CREATE TABLE mortality_2018 (
     resident_status varchar(3),
     edu varchar(3),
     edu_1989_rev varchar(3),
-    edu_1989_desc varchar(8),
     edu_2003_rev varchar(3),
-    edu_2003_desc varchar(8),
     edu_reporting_flag varchar(3),
     month_of_death varchar(3),
     sex varchar(3),
@@ -127,9 +130,7 @@ CREATE TABLE mortality_2017 (
     resident_status varchar(3),
     edu varchar(3),
     edu_1989_rev varchar(3),
-    edu_1989_desc varchar(8),
     edu_2003_rev varchar(3),
-    edu_2003_desc varchar(8),
     edu_reporting_flag varchar(3),
     month_of_death varchar(3),
     sex varchar(3),
@@ -218,9 +219,7 @@ CREATE TABLE mortality_2016 (
     resident_status varchar(3),
     edu varchar(3),
     edu_1989_rev varchar(3),
-    edu_1989_desc varchar(8),
     edu_2003_rev varchar(3),
-    edu_2003_desc varchar(8),
     edu_reporting_flag varchar(3),
     month_of_death varchar(3),
     sex varchar(3),
@@ -309,9 +308,7 @@ CREATE TABLE mortality_2015 (
     resident_status varchar(3),
     edu varchar(3),
     edu_1989_rev varchar(3),
-    edu_1989_desc varchar(8),
     edu_2003_rev varchar(3),
-    edu_2003_desc varchar(8),
     edu_reporting_flag varchar(3),
     month_of_death varchar(3),
     sex varchar(3),
@@ -400,9 +397,7 @@ CREATE TABLE mortality_2014 (
     resident_status varchar(3),
     edu varchar(3),
     edu_1989_rev varchar(3),
-    edu_1989_desc varchar(8),
     edu_2003_rev varchar(3),
-    edu_2003_desc varchar(8),
     edu_reporting_flag varchar(3),
     month_of_death varchar(3),
     sex varchar(3),
@@ -491,9 +486,7 @@ CREATE TABLE mortality_2013 (
     resident_status varchar(3),
     edu varchar(3),
     edu_1989_rev varchar(3),
-    edu_1989_desc varchar(8),
     edu_2003_rev varchar(3),
-    edu_2003_desc varchar(8),
     edu_reporting_flag varchar(3),
     month_of_death varchar(3),
     sex varchar(3),
@@ -582,9 +575,7 @@ CREATE TABLE mortality_2012 (
     resident_status varchar(3),
     edu varchar(3),
     edu_1989_rev varchar(3),
-    edu_1989_desc varchar(8),
     edu_2003_rev varchar(3),
-    edu_2003_desc varchar(8),
     edu_reporting_flag varchar(3),
     month_of_death varchar(3),
     sex varchar(3),
@@ -673,9 +664,7 @@ CREATE TABLE mortality_2011 (
     resident_status varchar(3),
     edu varchar(3),
     edu_1989_rev varchar(3),
-    edu_1989_desc varchar(8),
     edu_2003_rev varchar(3),
-    edu_2003_desc varchar(8),
     edu_reporting_flag varchar(3),
     month_of_death varchar(3),
     sex varchar(3),
@@ -766,7 +755,7 @@ CREATE TABLE mortality_2011 (
 show tables;
 
 -- Check 2 (change year of mortality_xxxx)
-show columns from cdcmortality.mortality_2018;
+show columns from cdcmortality.mortality_2017;
 
 
 SELECT * FROM cdcmortality.mortality_2017
