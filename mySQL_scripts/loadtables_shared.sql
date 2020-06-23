@@ -18,25 +18,32 @@
 -- Source Column = Dest Column
 -- SHOW INNODB STATUS;
 
---  DONE 2018 [x] x for no, o for yes --------------------------------------------------------------
+-- SELECT * FROM mortality_2018 as m18
+-- LEFT JOIN edu_2003_rev_LK ON 
+
+
+--  DONE 2018 [o] x for no, o for yes --------------------------------------------------------------
 SET FOREIGN_KEY_CHECKS=0;
 SET UNIQUE_CHECKS=0;
 
 SHOW SESSION VARIABLES LIKE 'local_infile';
 SET AUTOCOMMIT=1; 
 TRUNCATE TABLE cdcmortality.mortality_2018;
-LOAD DATA LOCAL INFILE 'F:/PythonFiles/NYCDSA/CAPSTONE - Ideas/rawdata/mort_2018.csv' INTO TABLE cdcmortality.mortality_2018
+LOAD DATA LOCAL INFILE 'YOUR PATH to the csv file' INTO TABLE cdcmortality.mortality_2018
 FIELDS TERMINATED BY ','
 OPTIONALLY ENCLOSED BY '"' 
 LINES TERMINATED BY '\r'
 IGNORE 1 LINES;
 
+SET FOREIGN_KEY_CHECKS=1;
+SET UNIQUE_CHECKS=1;
 
 SELECT * FROM cdcmortality.mortality_2018
-LIMIT 100;
+WHERE edu_1989_desc <> ''
+LIMIT 300;
 
  
--- NOT DONE 2017 [x] x for no, o for yes --------------------------------------------------------------
+-- DONE 2017 [o] x for no, o for yes --------------------------------------------------------------
 
 SET FOREIGN_KEY_CHECKS=0;
 SET UNIQUE_CHECKS=0;
@@ -53,7 +60,8 @@ IGNORE 1 LINES;
 SET FOREIGN_KEY_CHECKS=1;
 SET UNIQUE_CHECKS=1;
 
--- NOT DONE 2016 [o] x for no, o for yes ---------------------------------------------------------------
+-- DONE 2016 [o] x for no, o for yes ---------------------------------------------------------------
+
 
 SET FOREIGN_KEY_CHECKS=0;
 SET UNIQUE_CHECKS=0;
@@ -70,7 +78,8 @@ IGNORE 1 LINES;
 SET FOREIGN_KEY_CHECKS=1;
 SET UNIQUE_CHECKS=1;
 
--- NOT DONE 2015 [o] x for no, o for yes --------------------------------------------------------------
+
+-- DONE 2015 [o] x for no, o for yes --------------------------------------------------------------
 
 SET FOREIGN_KEY_CHECKS=0;
 SET UNIQUE_CHECKS=0;
@@ -87,7 +96,7 @@ IGNORE 1 LINES;
 SET FOREIGN_KEY_CHECKS=1;
 SET UNIQUE_CHECKS=1;
 
--- NOT DONE 2014 [o] x for no, o for yes --------------------------------------------------------------
+-- DONE 2014 [o] x for no, o for yes --------------------------------------------------------------
 
 SET FOREIGN_KEY_CHECKS=0;
 SET UNIQUE_CHECKS=0;
@@ -105,7 +114,7 @@ SET FOREIGN_KEY_CHECKS=1;
 SET UNIQUE_CHECKS=1;
 
 
--- NOT DONE 2013 [o] x for no, o for yes --------------------------------------------------------------
+-- DONE 2013 [o] x for no, o for yes --------------------------------------------------------------
 SET FOREIGN_KEY_CHECKS=0;
 SET UNIQUE_CHECKS=0;
 
@@ -122,7 +131,8 @@ SET FOREIGN_KEY_CHECKS=1;
 SET UNIQUE_CHECKS=1;
 
 
--- NOT DONE 2012 [o] x for no, o for yes --------------------------------------------------------------
+-- DONE 2012 [o] x for no, o for yes --------------------------------------------------------------
+
 SET FOREIGN_KEY_CHECKS=0;
 SET UNIQUE_CHECKS=0;
 
@@ -139,7 +149,7 @@ SET FOREIGN_KEY_CHECKS=1;
 SET UNIQUE_CHECKS=1;
 
 
--- NOT DONE 2011 [x] x for no, o for yes --------------------------------------------------------------
+-- DONE 2011 [x] x for no, o for yes --------------------------------------------------------------
 SET FOREIGN_KEY_CHECKS=0;
 SET UNIQUE_CHECKS=0;
 
