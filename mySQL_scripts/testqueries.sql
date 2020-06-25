@@ -2,7 +2,79 @@ USE cdcmortality;
 SELECT * FROM cdcmortality.edu_1989_rev_LK;
 SELECT * FROM cdcmortality.edu_2003_rev_LK;
 
+
+-- order by age_recode_52_cnt,age_recode_27_cnt ,age_recode_12_cnt-- 
 SELECT * FROM sdeaths_view;
+-- order by age_recode_52_cnt,age_recode_27_cnt ,age_recode_12_cnt-- 
+
+
+
+
+-- Combined Query for Per Capita Counts -- 
+
+
+
+Select year_id,cause_recode_358,age_recode_52,age_recode_27,
+age_recode_12,count(age_recode_52) as age_recode_52_cnt, count(age_recode_27) as age_recode_27_cnt,
+count(age_recode_12) as age_recode_12_cnt 
+FROM cdcmortality.mortality_2018
+group by cause_recode_358 
+
+UNION ALL
+
+Select year_id,cause_recode_358,age_recode_52,age_recode_27,
+age_recode_12,count(age_recode_52) as age_recode_52_cnt, count(age_recode_27) as age_recode_27_cnt,
+count(age_recode_12) as age_recode_12_cnt 
+FROM cdcmortality.mortality_2017 
+group by cause_recode_358 
+
+UNION ALL
+
+Select year_id,cause_recode_358,age_recode_52,age_recode_27,
+age_recode_12,count(age_recode_52) as age_recode_52_cnt, count(age_recode_27) as age_recode_27_cnt,
+count(age_recode_12) as age_recode_12_cnt 
+FROM cdcmortality.mortality_2016
+group by cause_recode_358 
+
+UNION ALL
+
+
+
+Select year_id,cause_recode_358,age_recode_52,age_recode_27,
+age_recode_12,count(age_recode_52) as age_recode_52_cnt, count(age_recode_27) as age_recode_27_cnt,
+count(age_recode_12) as age_recode_12_cnt 
+FROM cdcmortality.mortality_2015
+group by cause_recode_358 
+
+UNION ALL
+
+Select year_id,cause_recode_358,age_recode_52,age_recode_27,
+age_recode_12,count(age_recode_52) as age_recode_52_cnt, count(age_recode_27) as age_recode_27_cnt,
+count(age_recode_12) as age_recode_12_cnt 
+FROM cdcmortality.mortality_2014
+group by cause_recode_358 
+
+UNION ALL
+
+Select year_id,cause_recode_358,age_recode_52,age_recode_27,
+age_recode_12,count(age_recode_52) as age_recode_52_cnt, count(age_recode_27) as age_recode_27_cnt,
+count(age_recode_12) as age_recode_12_cnt 
+FROM cdcmortality.mortality_2013
+group by cause_recode_358 
+
+UNION ALL
+
+Select year_id,cause_recode_358,age_recode_52,age_recode_27,
+age_recode_12,count(age_recode_52) as age_recode_52_cnt, count(age_recode_27) as age_recode_27_cnt,
+count(age_recode_12) as age_recode_12_cnt 
+FROM cdcmortality.mortality_2012
+group by cause_recode_358
+order by age_recode_52_cnt,age_recode_27_cnt ,age_recode_12_cnt;
+
+
+select year_id,cause_recode_358,age_recode_52,age_recode_27,age_recode_12,count(age_recode_52) as age_recode_52_cnt, count(age_recode_27) as age_recode_27_cnt,count(age_recode_12) as age_recode_12_cnt FROM cdcmortality.mortality_2017 group by cause_recode_358 order by age_recode_52_cnt,age_recode_27_cnt ,age_recode_12_cnt ;
+select year_id,cause_recode_358,age_recode_52,age_recode_27,age_recode_12,count(age_recode_52) as age_recode_52_cnt, count(age_recode_27) as age_recode_27_cnt,count(age_recode_12) as age_recode_12_cnt FROM cdcmortality.mortality_2012 group by cause_recode_358 order by age_recode_52_cnt,age_recode_27_cnt ,age_recode_12_cnt ; 
+
 
 
 CREATE VIEW sdeaths_view
@@ -14,7 +86,7 @@ recAx_condition_1st, recAx_condition_2nd, recAx_condition_3rd, recAx_condition_4
 bridged_race_flag, allother_races_imputed_2, bridged_race_recode_5, hispanicorigin, hispanicorigin_bridgeracerecode
 FROM cdcmortality.mortality_2012 
 WHERE icd_10th_revision LIKE '%x6%' OR '%x7%' OR '%x8%'
-UNION 
+UNION
 SELECT person_id, year_id, resident_status, edu, edu_1989_rev, edu_2003_rev, edu_reporting_flag, month_of_death, sex, 
 reported_age_tmstmp_flag, reported_age, age_detail, age_sub_flag, age_recode_12, marital_status, day_of_week_of_death, data_year, injury_at_work, manner_of_death, place_of_injury,
 underlying_cause_of_death , icd_10th_revision, cause_recode_358, cause_recode_113, number_of_recordaxis_conditions,
@@ -62,6 +134,56 @@ recAx_condition_1st, recAx_condition_2nd, recAx_condition_3rd, recAx_condition_4
 bridged_race_flag, allother_races_imputed_2, bridged_race_recode_5, hispanicorigin, hispanicorigin_bridgeracerecode
 FROM cdcmortality.mortality_2018
 WHERE icd_10th_revision LIKE '%x6%' OR '%x7%' OR '%x8%';
+
+
+select * from sdeaths_all_view;
+-- DROP VIEW IF EXISTS sdeaths_all_view;
+
+SELECT person_id, year_id, resident_status, edu, edu_1989_rev, edu_2003_rev, edu_reporting_flag, month_of_death, sex, 
+reported_age_tmstmp_flag, reported_age, age_detail, age_sub_flag, age_recode_52,age_recode_27,age_recode_12, marital_status, day_of_week_of_death, data_year, injury_at_work, manner_of_death, place_of_injury,
+underlying_cause_of_death , icd_10th_revision, cause_recode_358, cause_recode_113, number_of_recordaxis_conditions,
+recAx_condition_1st, recAx_condition_2nd, recAx_condition_3rd, recAx_condition_4th,recAx_condition_5th
+FROM cdcmortality.mortality_2012;
+
+SELECT person_id, year_id, resident_status, edu, edu_1989_rev, edu_2003_rev, edu_reporting_flag, month_of_death, sex, 
+reported_age_tmstmp_flag, reported_age, age_detail, age_sub_flag, age_recode_52,age_recode_27,age_recode_12, marital_status, day_of_week_of_death, data_year, injury_at_work, manner_of_death, place_of_injury,
+underlying_cause_of_death , icd_10th_revision, cause_recode_358, cause_recode_113, number_of_recordaxis_conditions,
+recAx_condition_1st, recAx_condition_2nd, recAx_condition_3rd, recAx_condition_4th,recAx_condition_5th
+FROM cdcmortality.mortality_2013 ;
+
+SELECT person_id, year_id, resident_status, edu, edu_1989_rev, edu_2003_rev, edu_reporting_flag, month_of_death, sex, 
+reported_age_tmstmp_flag, reported_age, age_detail, age_sub_flag, age_recode_52,age_recode_27,age_recode_12, marital_status, day_of_week_of_death, data_year, injury_at_work, manner_of_death, place_of_injury,
+underlying_cause_of_death , icd_10th_revision, cause_recode_358, cause_recode_113, number_of_recordaxis_conditions,
+recAx_condition_1st, recAx_condition_2nd, recAx_condition_3rd, recAx_condition_4th,recAx_condition_5th
+FROM cdcmortality.mortality_2014 ;
+
+SELECT person_id, year_id, resident_status, edu, edu_1989_rev, edu_2003_rev, edu_reporting_flag, month_of_death, sex, 
+reported_age_tmstmp_flag, reported_age, age_detail, age_sub_flag, age_recode_52,age_recode_27,age_recode_12, marital_status, day_of_week_of_death, data_year, injury_at_work, manner_of_death, place_of_injury,
+underlying_cause_of_death , icd_10th_revision, cause_recode_358, cause_recode_113, number_of_recordaxis_conditions,
+recAx_condition_1st, recAx_condition_2nd, recAx_condition_3rd, recAx_condition_4th,recAx_condition_5th
+FROM cdcmortality.mortality_2015;
+ 
+SELECT person_id, year_id, resident_status, edu, edu_1989_rev, edu_2003_rev, edu_reporting_flag, month_of_death, sex, 
+reported_age_tmstmp_flag, reported_age, age_detail, age_sub_flag, age_recode_52,age_recode_27,age_recode_12, marital_status, day_of_week_of_death, data_year, injury_at_work, manner_of_death, place_of_injury,
+underlying_cause_of_death , icd_10th_revision, cause_recode_358, cause_recode_113, number_of_recordaxis_conditions,
+recAx_condition_1st, recAx_condition_2nd, recAx_condition_3rd, recAx_condition_4th,recAx_condition_5th
+FROM cdcmortality.mortality_2016;
+
+SELECT person_id, year_id, resident_status, edu, edu_1989_rev, edu_2003_rev, edu_reporting_flag, month_of_death, sex, 
+reported_age_tmstmp_flag, reported_age, age_detail, age_sub_flag, age_recode_52,age_recode_27,age_recode_12, marital_status, day_of_week_of_death, data_year, injury_at_work, manner_of_death, place_of_injury,
+underlying_cause_of_death , icd_10th_revision, cause_recode_358, cause_recode_113, number_of_recordaxis_conditions,
+recAx_condition_1st, recAx_condition_2nd, recAx_condition_3rd, recAx_condition_4th,recAx_condition_5th
+FROM cdcmortality.mortality_2017;
+
+SELECT person_id, year_id, resident_status, edu, edu_1989_rev, edu_2003_rev, edu_reporting_flag, month_of_death, sex, 
+reported_age_tmstmp_flag, reported_age, age_detail, age_sub_flag, age_recode_52,age_recode_27,age_recode_12, marital_status, day_of_week_of_death, data_year, injury_at_work, manner_of_death, place_of_injury,
+underlying_cause_of_death , icd_10th_revision, cause_recode_358, cause_recode_113, number_of_recordaxis_conditions,
+recAx_condition_1st, recAx_condition_2nd, recAx_condition_3rd, recAx_condition_4th,recAx_condition_5th
+FROM cdcmortality.mortality_2018;
+
+
+
+
 
 -- DELETE FROM cdcmortality.mortality_2015
 -- WHERE person_id ='2712631';
